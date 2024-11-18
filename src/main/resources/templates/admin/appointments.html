@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor's Appointments</title>
+    <style>
+        .no-appointments {
+            color: red;
+            font-weight: bold;
+        }
+        .appointment-card {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div class="container">
+            <h1>Welcome, Dr. <span th:text="${doctor}">Doctor's Name</span></h1>
+            
+            <h2>Appointments</h2>
+            
+            <h3>Upcoming Appointments</h3>
+            <div th:if="${upcomingAppointments != null && upcomingAppointments.isEmpty()}" class="no-appointments">
+                No upcoming appointments
+            </div>
+            <div th:each="appointment : ${upcomingAppointments}" class="appointment-card">
+                <h4 th:text="${appointment.fullName}">Patient's Name</h4>
+                <p><strong>Date:</strong> <span th:text="${appointment.date}">Date</span></p>
+                <p><strong>Time:</strong> <span th:text="${appointment.time}">Time</span></p>
+                <p><strong>Condition:</strong> <span th:text="${appointment.condition}">Condition</span></p>
+            </div>
+
+            <h3>Previous Appointments</h3>
+            <div th:if="${previousAppointments != null && previousAppointments.isEmpty()}" class="no-appointments">
+                No previous appointments
+            </div>
+            <div th:each="appointment : ${previousAppointments}" class="appointment-card">
+                <h4 th:text="${appointment.fullName}">Patient's Name</h4>
+                <p><strong>Date:</strong> <span th:text="${appointment.date}">Date</span></p>
+                <p><strong>Time:</strong> <span th:text="${appointment.time}">Time</span></p>
+                <p><strong>Condition:</strong> <span th:text="${appointment.condition}">Condition</span></p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
