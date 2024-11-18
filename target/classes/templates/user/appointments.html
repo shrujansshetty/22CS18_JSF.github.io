@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::Layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+	
+</head>
+<body>
+	<section>
+		<!-- Preloader -->
+		 <div class="preloader" data-preloader>
+		     <div class="circle"></div>
+		 </div>
+
+		 <!-- HEADER -->
+		 <header class="header" data-header>
+		     <div class="container">
+		         <a href="home" class="logo">
+		             <!-- Replace with actual MetLife logo with heartbeat symbol image path -->
+		             <h1 class="logo-text" style="display: flex; flex-direction: row;">MetLife <span class="heartbeat-icon">❤️</span></h1>
+		         </a>
+
+		         <nav class="navbar" data-navbar>
+		             <div class="navbar-top">
+		                 <a href="index" class="logo">
+		                     <!-- Replace with actual MetLife logo with heartbeat symbol image path -->
+		                     <h1 class="logo-text">MetLife <span class="heartbeat-icon">❤️</span></h1>
+		                 </a>
+		                 <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
+		                     <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+		                 </button>
+		             </div>
+
+		             <ul class="navbar-list">
+		                 <li class="navbar-item"><a href="home" class="navbar-link title-md">Home</a></li>
+		                 <li class="navbar-item"><a href="doctors" class="navbar-link title-md">Doctors</a></li>
+						 <li class="navbar-item"><a href="/logout" class="navbar-link title-md">LogOut</a></li>
+		             </ul>
+
+		             <ul class="social-list">
+		                 <li><a href="#" class="social-link"><ion-icon name="logo-twitter"></ion-icon></a></li>
+		                 <li><a href="#" class="social-link"><ion-icon name="logo-facebook"></ion-icon></a></li>
+		                 <li><a href="#" class="social-link"><ion-icon name="logo-pinterest"></ion-icon></a></li>
+		                 <li><a href="#" class="social-link"><ion-icon name="logo-instagram"></ion-icon></a></li>
+		                 <li><a href="#" class="social-link"><ion-icon name="logo-youtube"></ion-icon></a></li>
+		             </ul>
+		         </nav>
+
+		         <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+		             <ion-icon name="menu-outline"></ion-icon>
+		         </button>
+		         <a href="appointments" class="btn has-before title-md magic-effect">My Appointments</a>
+
+		         <div class="overlay" data-nav-toggler data-overlay></div>
+		     </div>
+		 </header>
+
+
+		 <main style="margin-top: 10%;">
+		     <div class="appointment-container">
+		         <h2>Upcoming Appointments</h2>
+		         <div class="appointments-section">
+		             <div th:if="${upcomingAppointments.isEmpty()}" class="no-appointments">No upcoming appointments</div>
+		             <div th:each="appointment : ${upcomingAppointments}" class="appointment-card">
+		                 <h3 th:text="${appointment.doctor}">Doctor's Name</h3>
+		                 <p><strong>Date:</strong> <span th:text="${appointment.date}">Date</span></p>
+		                 <p><strong>Time:</strong> <span th:text="${appointment.time}">Time</span></p>
+		                 <p><strong>Condition:</strong> <span th:text="${appointment.condition}">Condition</span></p>
+		             </div>
+		         </div>
+
+		         <h2>Previous Appointments</h2>
+		         <div class="appointments-section">
+		             <div th:if="${previousAppointments.isEmpty()}" class="no-appointments">No previous appointments</div>
+		             <div th:each="appointment : ${previousAppointments}" class="appointment-card">
+		                 <h3 th:text="${appointment.doctor}">Doctor's Name</h3>
+		                 <p><strong>Date:</strong> <span th:text="${appointment.date}">Date</span></p>
+		                 <p><strong>Time:</strong> <span th:text="${appointment.time}">Time</span></p>
+		                 <p><strong>Condition:</strong> <span th:text="${appointment.condition}">Condition</span></p>
+		             </div>
+		         </div>
+		     </div>
+
+			 </main>
+
+		 <!-- FOOTER -->
+		 <section id="contact">
+		 <footer id= "footers" class="footer" style="background-image: url('./assets/images/footer-bg.png')">
+		     <div class="container">
+
+		         <div class="footer-bottom">
+		             <p class="text copyright">&copy; MetLife 2024 | All Rights Reserved by vedangshetty</p>
+		             <ul class="social-list">
+		                 <li><a href="#" class="social-link"><ion-icon name="logo-facebook"></ion-icon></a></li>
+		                 <li><a href="#" class="social-link"><ion-icon name="logo-twitter"></ion-icon></a></li>
+		                 <li><a href="#" class="social-link"><ion-icon name="logo-google"></ion-icon></a></li>
+		                 <li><a href="#" class="social-link"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+		                 <li><a href="#" class="social-link"><ion-icon name="logo-pinterest"></ion-icon></a></li>
+		             </ul>
+		         </div>
+		     </div>
+		 </footer>
+		 </section>
+		 <!-- BACK TO TOP BUTTON -->
+		 <a href="#top" class="back-top-btn" aria-label="back to top" data-back-top-btn>
+		     <ion-icon name="chevron-up"></ion-icon>
+		 </a>
+
+	</section>
+</body>
+</html>

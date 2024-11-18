@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeLeaf.org" th:replace="base::Layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+</head>
+<body>
+	<section>
+		<!-- Preloader -->
+		 <div class="preloader" data-preloader>
+		     <div class="circle"></div>
+		 </div>
+
+		 <!-- HEADER -->
+		 <header class="header" data-header>
+		     <div class="container">
+		         <a href="home" class="logo">
+		             <!-- Replace with actual MetLife logo with heartbeat symbol image path -->
+		             <h1 class="logo-text" style="display: flex; flex-direction: row;">MetLife <span class="heartbeat-icon">❤️</span></h1>
+		         </a>
+
+		         <nav class="navbar" data-navbar>
+		             <div class="navbar-top">
+		                 <a href="index" class="logo">
+		                     <!-- Replace with actual MetLife logo with heartbeat symbol image path -->
+		                     <h1 class="logo-text">MetLife <span class="heartbeat-icon">❤️</span></h1>
+		                 </a>
+		                 <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
+		                     <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+		                 </button>
+		             </div>
+
+		             <ul class="navbar-list">
+		                 <li class="navbar-item"><a href="home" class="navbar-link title-md">Home</a></li>
+		                 <li class="navbar-item"><a href="doctors" class="navbar-link title-md">Doctors</a></li>
+		                 <li class="navbar-item"><a href="#services" class="navbar-link title-md">Services</a></li>
+		                 <li class="navbar-item"><a href="#contact" class="navbar-link title-md">Contact</a></li>
+		 			 <li class="navbar-item"><a href="/logout" class="navbar-link title-md">LogOut</a></li>
+		             </ul>
+
+		             <ul class="social-list">
+		                 <li><a href="#" class="social-link"><ion-icon name="logo-twitter"></ion-icon></a></li>
+		                 <li><a href="#" class="social-link"><ion-icon name="logo-facebook"></ion-icon></a></li>
+		                 <li><a href="#" class="social-link"><ion-icon name="logo-pinterest"></ion-icon></a></li>
+		                 <li><a href="#" class="social-link"><ion-icon name="logo-instagram"></ion-icon></a></li>
+		                 <li><a href="#" class="social-link"><ion-icon name="logo-youtube"></ion-icon></a></li>
+		             </ul>
+		         </nav>
+
+		         <div class="overlay" data-nav-toggler data-overlay></div>
+		     </div>
+		 </header>
+		 <!-- MAIN CONTENT -->
+		 <main class="mainbg" style="background-image: url('./assets/images/hero-bg.png')" >
+		 <div  class="container p-30" >
+		 	<div class="row" style="display: flex;justify-content: center;align-items: center; height: 150vh;">
+		 		<div class="col-md-6 offset-md-0 ">
+		 			<div class="card p-5" >
+		 				<div class="card-header text-center fs-12">
+		 					BOOK APPOINTMENT
+		 				</div>
+		 				<div th:if="${param.error}" class="alert alert-danger">Invalid Username or Password</div>
+		 				<div th:if="${param.logout}" class="alert alert-success">Logout Successfully</div>
+		 				<div class="card-body">
+							<!--<form action="/submit-appointment" method="POST">
+							   
+								<div class="form-group">
+								    <label for="email">Email:</label>
+								    <input type="email" id="email" name="email" th:value="${user.email}" readonly>
+								</div><br>
+								
+								<div class="form-group">
+								    <label for="fullName">Name:</label>
+								    <input type="text" id="fullName" name="fullName" th:value="${user.fullName}" readonly>
+								</div><br>
+								
+								<div class="form-group">
+								    <label for="doctor">Doctor:</label>
+								    <input type="text" id="doctor" name="doctor" th:value="${doctor}" readonly>
+								</div><br>
+															
+							   
+							    <label for="date">Date of Appointment:</label>
+							    <input type="date" id="date" name="date" required><br><br>
+							
+							    <label for="time">Time of Appointment:</label>
+							    <input type="time" id="time" name="time" required><br><br>
+							
+							    
+							    <label for="condition">Describe your condition:</label><br>
+							    <textarea id="condition" name="condition" rows="4" cols="50" required placeholder="Briefly describe your condition"></textarea><br><br>
+							
+							    <button type="submit">Book Appointment</button>
+							</form>-->
+							
+					<!--	<form action="/submit-appointment" method="POST">
+							    <div class="form-group">
+							        <label for="email">Email:</label>
+							        <input type="email" id="email" name="email" th:value="${user.email}" readonly>
+							    </div><br>
+							    
+							    <div class="form-group">
+							        <label for="fullName">Name:</label>
+							        <input type="text" id="fullName" name="fullName" th:value="${user.fullName}" readonly>
+							    </div><br>
+							    
+							    <div class="form-group">
+							        <label for="doctor">Doctor:</label>
+							        <input type="text" id="doctor" name="doctor" th:value="${doctor}" readonly>
+							    </div><br>
+							    
+							    <label for="date">Date of Appointment:</label>
+							    <input type="date" id="date" name="date" required><br><br>
+							    
+							    <label for="time">Time of Appointment:</label>
+							    <input type="time" id="time" name="time" required><br><br>
+							    
+							    <label for="condition">Describe your condition:</label><br>
+							    <textarea id="condition" name="condition" rows="4" cols="50" required placeholder="Briefly describe your condition"></textarea><br><br>
+							    
+							    <button type="submit">Book Appointment</button>
+							</form>
+							-->	
+							<!DOCTYPE html>
+							<html xmlns:th="http://www.thymeleaf.org">
+							<head>
+							    <title>Book Appointment</title>
+							</head>
+							<body>
+							    <form action="/user/submit-appointment" method="POST">
+							        <input type="email" name="email" th:value="${user.email}" readonly>
+							        <input type="text" name="fullName" th:value="${user.fullName}" readonly>
+							        <input type="text" name="doctor" th:value="${doctor}" readonly>
+							        <input type="date" name="date" required>
+							        <input type="time" name="time" required>
+							        <input type="text" name="condition" placeholder="Enter condition" />
+							        <button type="submit"  class="btn btn-primary">Book Appointment</button>
+							    </form>
+							</body>
+							</html>
+
+		 				</div>
+		 			</div>
+		 		</div>
+		 	</div>
+		 </div>
+		 </main>
+		 <!-- FOOTER -->
+		 <section id="contact">
+		 <footer id= "footers" class="footer" style="background-image: url('./assets/images/footer-bg.png')">
+		     <div class="container">
+		         <div class="section footer-top">
+		             <div class="footer-brand" data-reveal="bottom">
+		                 <a href="#" class="logo">
+		                     <!-- Placeholder for MetLife logo with heartbeat symbol -->
+		                     <h1 class="logo-text">MetLife <span class="heartbeat-icon">❤️</span></h1>
+		                 </a>
+		                 <ul class="contact-list has-after">
+		                     <li class="contact-item">
+		                         <div class="item-icon">
+		                             <ion-icon name="mail-open-outline"></ion-icon>
+		                         </div>
+		                         <div>
+		                             <p>Main Email: <a href="mailto:vedangshetty21@gmail.com" class="contact-link">vedangshetty21@&shy;gmail.com</a></p>
+		                             <p>Inquiries: <a href="mailto:Info@mail.com" class="contact-link">Info@mail.com</a></p>
+		                         </div>
+		                     </li>
+		                     <li class="contact-item">
+		                         <div class="item-icon">
+		                             <ion-icon name="call-outline"></ion-icon>
+		                         </div>
+		                         <div>
+		                             <p>Office Telephone: <a href="tel:0029129102320" class="contact-link">0029129102320</a></p>
+		                             <p>Mobile: <a href="tel:000232439493" class="contact-link">000 2324 39493</a></p>
+		                         </div>
+		                     </li>
+		                 </ul>
+		             </div>
+
+		             <div class="footer-list" data-reveal="bottom">
+		                 <p class="headline-sm footer-list-title">About Us</p>
+		                 <p class="text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed</p>
+		                 <address class="address">
+		                     <ion-icon name="map-outline"></ion-icon>
+		                     <span class="text">
+		                        Nitte, Udupi <br>
+		                        KA | IN
+		                     </span>
+		                 </address>
+		             </div>
+
+		             <ul class="footer-list" data-reveal="bottom">
+		                 <li><p class="headline-sm footer-list-title">Services</p></li>
+		                 <li><a href="#" class="text footer-link">Conditions</a></li>
+		                 <li><a href="#" class="text footer-link">Listing</a></li>
+		                 <li><a href="#" class="text footer-link">How It Works</a></li>
+		                 <li><a href="#" class="text footer-link">What We Offer</a></li>
+		                 <li><a href="#" class="text footer-link">Latest News</a></li>
+		                 <li><a href="#" class="text footer-link">Contact Us</a></li>
+		             </ul>
+
+		             <ul class="footer-list" data-reveal="bottom">
+		                 <li><p class="headline-sm footer-list-title">Useful Links</p></li>
+		                 <li><a href="#" class="text footer-link">Conditions</a></li>
+		                 <li><a href="#" class="text footer-link">Terms of Use</a></li>
+		                 <li><a href="#" class="text footer-link">Our Services</a></li>
+		                 <li><a href="#" class="text footer-link">Join as a Doctor</a></li>
+		                 <li><a href="#" class="text footer-link">New Guests List</a></li>
+		                 <li><a href="#" class="text footer-link">The Team List</a></li>
+		             </ul>
+
+		             <div class="footer-list" data-reveal="bottom">
+		                 <p class="headline-sm footer-list-title">Subscribe</p>
+		                 <form action="" class="footer-form">
+		                     <input type="email" name="email" placeholder="Email" class="input-field title-lg">
+		                     <button type="submit" class="btn has-before title-md">Subscribe</button>
+		                 </form>
+		                 <p class="text">Get the latest updates via email. You may unsubscribe anytime.</p>
+		             </div>
+		         </div>
+
+		         <div class="footer-bottom">
+		             <p class="text copyright">&copy; MetLife 2024 | All Rights Reserved by vedangshetty</p>
+		             <ul class="social-list">
+		                 <li><a href="#" class="social-link"><ion-icon name="logo-facebook"></ion-icon></a></li>
+		                 <li><a href="#" class="social-link"><ion-icon name="logo-twitter"></ion-icon></a></li>
+		                 <li><a href="#" class="social-link"><ion-icon name="logo-google"></ion-icon></a></li>
+		                 <li><a href="#" class="social-link"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+		                 <li><a href="#" class="social-link"><ion-icon name="logo-pinterest"></ion-icon></a></li>
+		             </ul>
+		         </div>
+		     </div>
+		 </footer>
+		 </section>
+		 <!-- BACK TO TOP BUTTON -->
+		 <a href="#top" class="back-top-btn" aria-label="back to top" data-back-top-btn>
+		     <ion-icon name="chevron-up"></ion-icon>
+		 </a>
+
+	</section>
+</body>
+</html>

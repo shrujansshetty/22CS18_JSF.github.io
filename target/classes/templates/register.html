@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeLeaf.org" th:replace="base::Layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+	<section>
+		<!-- Preloader -->
+		 <div class="preloader" data-preloader>
+		     <div class="circle"></div>
+		 </div>
+
+		 <!-- HEADER -->
+		 <header class="header" data-header>
+		     <div class="container">
+		         <a href="index" class="logo">
+		             <!-- Replace with actual MetLife logo with heartbeat symbol image path -->
+		             <h1 class="logo-text" style="display: flex; flex-direction: row;">MetLife <span class="heartbeat-icon">❤️</span></h1>
+		         </a>
+
+		         <nav class="navbar" data-navbar>
+		             <div class="navbar-top">
+		                 <a href="index" class="logo">
+		                     <!-- Replace with actual MetLife logo with heartbeat symbol image path -->
+		                     <h1 class="logo-text">MetLife <span class="heartbeat-icon">❤️</span></h1>
+		                 </a>
+		                 <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
+		                     <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+		                 </button>
+		             </div>
+
+		             <ul class="navbar-list">
+		                 <li class="navbar-item"><a href="index" class="navbar-link title-md">Home</a></li>
+		                 <li class="navbar-item"><a href="doctors" class="navbar-link title-md">Doctors</a></li>
+						 <li class="navbar-item"><a href="signin" class="navbar-link title-md">SignIn</a></li>
+		             </ul>
+
+		             <ul class="social-list">
+		                 <li><a href="#" class="social-link"><ion-icon name="logo-twitter"></ion-icon></a></li>
+		                 <li><a href="#" class="social-link"><ion-icon name="logo-facebook"></ion-icon></a></li>
+		                 <li><a href="#" class="social-link"><ion-icon name="logo-pinterest"></ion-icon></a></li>
+		                 <li><a href="#" class="social-link"><ion-icon name="logo-instagram"></ion-icon></a></li>
+		                 <li><a href="#" class="social-link"><ion-icon name="logo-youtube"></ion-icon></a></li>
+		             </ul>
+		         </nav>
+
+		         <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+		             <ion-icon name="menu-outline"></ion-icon>
+		         </button>
+		         <a href="signin" class="btn has-before title-md magic-effect">Make Appointment</a>
+
+		         <div class="overlay" data-nav-toggler data-overlay></div>
+		     </div>
+		 </header>
+
+		 <!-- MAIN CONTENT -->
+		 <main class="mainbg" style="background-image: url('./assets/images/hero-bg.png')" >
+		 <div  class="container p-30" >
+		 	<div class="row" style="display: flex;justify-content: center;align-items: center; height: 110vh;">
+		 		<div class="col-md-6 offset-md-0 ">
+		 			<div class="card p-5" >
+						<div class="card-header text-center fs-12">
+													REGISTER
+												</div>
+												<th:block th:if="${session.msg}">
+													<p class="text-center fs-4 text-success">[[${session.msg}]]</p>
+													<!--<th:block th:text="${#session.removeAttribute('msg')}"></th:block>-->
+												</th:block>
+												<class="card-body">
+													<form action="createUser" method="post">
+													  <div class="mb-3">
+													    <label class="fs-5 mb-2">Full Name</label>
+													    <input type="text" class="form-control py-3" name="fullName" required>
+													  </div>
+													  <div class="mb-3">
+													    <label class="fs-5 mb-2">Email</label>
+													    <input type="email" class="form-control py-3" name="email" required>
+													  </div>
+													  <div class="mb-3">
+													    <label class="fs-5 mb-2">Address</label>
+													    <input type="text" class="form-control py-3" name="address" required>
+													  </div>
+													  <div class="mb-3">
+													    <label class="fs-5 mb-2">Qualification</label>
+													    <input type="text" class="form-control py-3" name="qualification" required>
+													  </div>
+													  <div class="mb-3">
+													    <label class="fs-5 mb-2">Password</label>
+													    <input type="password" class="form-control py-3" name="password" required>
+													  </div>
+													  <button class="btn btn-primary">Register</button>
+													</form>
+		 			</div>
+		 		</div>
+		 	</div>
+		 </div>
+		 </main>
+		 <!-- FOOTER -->
+		 <section id="contact">
+		 <footer id= "footers" class="footer" style="background-image: url('./assets/images/footer-bg.png')">
+		    
+		         <div class="footer-bottom">
+		             <p class="text copyright">&copy; MetLife 2024 | All Rights Reserved by vedangshetty</p>
+		             <ul class="social-list">
+		                 <li><a href="#" class="social-link"><ion-icon name="logo-facebook"></ion-icon></a></li>
+		                 <li><a href="#" class="social-link"><ion-icon name="logo-twitter"></ion-icon></a></li>
+		                 <li><a href="#" class="social-link"><ion-icon name="logo-google"></ion-icon></a></li>
+		                 <li><a href="#" class="social-link"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+		                 <li><a href="#" class="social-link"><ion-icon name="logo-pinterest"></ion-icon></a></li>
+		             </ul>
+		         </div>
+		 </footer>
+		 </section>
+		 <!-- BACK TO TOP BUTTON -->
+		 <a href="#top" class="back-top-btn" aria-label="back to top" data-back-top-btn>
+		     <ion-icon name="chevron-up"></ion-icon>
+		 </a>
+
+	</section>
+</body>
+</html>
+
